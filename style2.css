@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Fascinate&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  /* background-color: #768E99; */
+  /* background-color: #2e2e2e; */
+  /* background-image: url("assets/backgroundimage.png");
+background-repeat: repeat-y;
+background-size: 50% auto; */
+  background-image:
+    linear-gradient(to right,
+      #768E99,
+      #768E99 28%,
+      #363636 28%,
+      #363636 72%,
+      #768E99 72%);
+}
+
+h1 {
+  font-family: 'Fascinate', cursive;
+  font-size: 100px;
+}
+
+hr {
+  width: 40%;
+}
+
+p {
+  font-family: 'Amatic SC', cursive;
+  font-size: 40px;
+}
+
+p, h1, hr {
+  color: white;
+}
+
+#sprite-image {
+  height: 550px;
+  width: 560px;
+  margin: 0 auto;
+  background: url("assets/sidewalksign-sprite.png");
+  /* background-size: 1678px; */
+  animation: play 1s steps(3) infinite;
+}
+
+@keyframes play {
+  100% {
+    background-position: -1678px;
+  }
+}
+
+.sprite-row {
+  position: absolute;
+  left: 40%;
+  top: 60%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+}
+
+.image-row {
+  position: absolute;
+  left: 61%;
+  top: 60%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+}
+
+.button {
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  position: absolute;
+  font-family: 'Amatic SC', cursive;
+  font-size: 30px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  left: 40%;
+  top: 97%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.goback {
+  background-color: #363636;
+  color: white;
+  border: 1px dashed white;
+}
+
+.goback:hover {
+  background-color: #555555;
+  color: white;
+}

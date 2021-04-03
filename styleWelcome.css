@@ -1,0 +1,64 @@
+/* body{
+  background-color: #dba78c;
+} */
+
+.door {
+  width: 700px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+
+svg #doorOut {
+  animation-name: slideClose;
+  animation-duration: 2s;
+  animation-play-state: running;
+  animation-fill-mode: forwards;
+}
+
+svg:hover #doorOut {
+  animation-name: slideOpen;
+  animation-duration: 2s;
+  animation-play-state: running;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slideOpen {
+  from {
+    transform: translate(0px, 0px);
+  }
+
+  to {
+    transform: translate(-50px, 0px);
+  }
+}
+
+@keyframes slideClose {
+  0% {
+    transform: translate(-50px, 0px);
+  }
+
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+
+a h2 {
+    position: absolute;
+    display: inline-block;
+    left: 50%;
+    top: 20%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: black;
+    opacity:0;
+    transition:0.5s;
+}
+
+a:hover h2 {
+    opacity:1;
+}

@@ -1,0 +1,375 @@
+canvas {
+  display: block;
+  position: absolute;
+
+}
+
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, Helvetica, Sans-serif;
+}
+
+
+.container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background: white;
+  position: relative;
+  cursor: pointer;
+}
+.container .layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 4s ease;
+  opacity: 0.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 100%;
+  overflow: hidden;
+}
+.container .layer > div.text {
+  display: flex;
+  text-align: center;
+  color: white;
+  font-size: 36px;
+  width: 50%;
+  height: 50%;
+  justify-content: center;
+  align-items: center;
+  transition: transform 4s ease, opacity 1.5s linear;
+}
+.container .layer.filter {
+  background: linear-gradient(0deg, violet, #048);
+}
+.container .layer.sunset {
+  background: linear-gradient(0deg, orange, blue);
+  opacity: 0.5;
+}
+.container .layer.sunset > div {
+  transform: translateY(0%);
+  opacity: 1;
+}
+.container .layer.nighttime {
+  background: linear-gradient(0deg, #04A, #000);
+  opacity: 0;
+}
+.container .layer.nighttime > div {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+.container .layer.stars {
+  opacity: 0.1;
+  transition: opacity 4s ease, transform 4s;
+  transform: translateY(-5%);
+}
+.container .layer.stars > div {
+  transition: transform 0s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 3px;
+  border-radius: 2px;
+  background: white;
+  box-shadow: 0 0 2px white;
+}
+.container .layer.stars > div:nth-child(1) {
+  transform: translateX(66px) translateY(27px) scale(1.1428571429);
+  box-shadow: 0 0 4px white;
+  opacity: 0.2;
+}
+.container .layer.stars > div:nth-child(2) {
+  transform: translateX(755px) translateY(30px) scale(1.1428571429);
+  box-shadow: 0 0 4px white;
+  opacity: 0.7;
+}
+.container .layer.stars > div:nth-child(3) {
+  transform: translateX(1933px) translateY(120px) scale(1);
+  box-shadow: 0 0 4px white;
+  opacity: 0.6;
+}
+.container .layer.stars > div:nth-child(4) {
+  transform: translateX(44px) translateY(111px) scale(1);
+  box-shadow: 0 0 1px white;
+  opacity: 0.3;
+}
+.container .layer.stars > div:nth-child(5) {
+  transform: translateX(1872px) translateY(83px) scale(0.1428571429);
+  box-shadow: 0 0 4px white;
+  opacity: 0.1;
+}
+.container .layer.stars > div:nth-child(6) {
+  transform: translateX(906px) translateY(204px) scale(0.1428571429);
+  box-shadow: 0 0 3px white;
+  opacity: 0.6;
+}
+.container .layer.stars > div:nth-child(7) {
+  transform: translateX(777px) translateY(168px) scale(0.4285714286);
+  box-shadow: 0 0 3px white;
+  opacity: 0.1;
+}
+.container .layer.stars > div:nth-child(8) {
+  transform: translateX(388px) translateY(364px) scale(0.1428571429);
+  box-shadow: 0 0 3px white;
+  opacity: 0.1;
+}
+.container .layer.stars > div:nth-child(9) {
+  transform: translateX(1299px) translateY(116px) scale(0.4285714286);
+  box-shadow: 0 0 1px white;
+  opacity: 0.8;
+}
+.container .layer.stars > div:nth-child(10) {
+  transform: translateX(758px) translateY(10px) scale(0.7142857143);
+  box-shadow: 0 0 1px white;
+  opacity: 0.9;
+}
+.container .layer.stars > div:nth-child(11) {
+  transform: translateX(830px) translateY(336px) scale(1.1428571429);
+  box-shadow: 0 0 1px white;
+  opacity: 0.4;
+}
+.container .layer.stars > div:nth-child(12) {
+  transform: translateX(1003px) translateY(242px) scale(0.5714285714);
+  box-shadow: 0 0 3px white;
+  opacity: 1;
+}
+.container .layer.stars > div:nth-child(13) {
+  transform: translateX(949px) translateY(250px) scale(1.4285714286);
+  box-shadow: 0 0 2px white;
+  opacity: 0.2;
+}
+.container .layer.stars > div:nth-child(14) {
+  transform: translateX(2175px) translateY(29px) scale(0.7142857143);
+  box-shadow: 0 0 2px white;
+  opacity: 0.5;
+}
+.container .layer.stars > div:nth-child(15) {
+  transform: translateX(968px) translateY(199px) scale(0.1428571429);
+  box-shadow: 0 0 4px white;
+  opacity: 0.5;
+}
+.container .layer.stars > div:nth-child(16) {
+  transform: translateX(1445px) translateY(155px) scale(0.1428571429);
+  box-shadow: 0 0 1px white;
+  opacity: 0.9;
+}
+.container .layer.stars > div:nth-child(17) {
+  transform: translateX(187px) translateY(198px) scale(0.8571428571);
+  box-shadow: 0 0 2px white;
+  opacity: 0.7;
+}
+.container .layer.stars > div:nth-child(18) {
+  transform: translateX(1554px) translateY(172px) scale(0.2857142857);
+  box-shadow: 0 0 2px white;
+  opacity: 0.9;
+}
+.container .layer.stars > div:nth-child(19) {
+  transform: translateX(762px) translateY(192px) scale(0.8571428571);
+  box-shadow: 0 0 3px white;
+  opacity: 1;
+}
+.container .layer.stars > div:nth-child(20) {
+  transform: translateX(1043px) translateY(143px) scale(0.5714285714);
+  box-shadow: 0 0 2px white;
+  opacity: 0.1;
+}
+.container .layer.stars > div:nth-child(21) {
+  transform: translateX(1980px) translateY(290px) scale(1);
+  box-shadow: 0 0 4px white;
+  opacity: 0.5;
+}
+.container .layer.stars > div:nth-child(22) {
+  transform: translateX(447px) translateY(394px) scale(0.1428571429);
+  box-shadow: 0 0 4px white;
+  opacity: 0.8;
+}
+.container .layer.stars > div:nth-child(23) {
+  transform: translateX(581px) translateY(142px) scale(1.1428571429);
+  box-shadow: 0 0 1px white;
+  opacity: 1;
+}
+.container .layer.stars > div:nth-child(24) {
+  transform: translateX(2132px) translateY(216px) scale(0.1428571429);
+  box-shadow: 0 0 3px white;
+  opacity: 0.5;
+}
+.container .layer.stars > div:nth-child(25) {
+  transform: translateX(544px) translateY(145px) scale(1.1428571429);
+  box-shadow: 0 0 2px white;
+  opacity: 1;
+}
+.container .layer.stars > div:nth-child(26) {
+  transform: translateX(2028px) translateY(254px) scale(1);
+  box-shadow: 0 0 1px white;
+  opacity: 0.2;
+}
+.container .layer.stars > div:nth-child(27) {
+  transform: translateX(1598px) translateY(101px) scale(0.5714285714);
+  box-shadow: 0 0 2px white;
+  opacity: 0.3;
+}
+.container .layer.stars > div:nth-child(28) {
+  transform: translateX(1460px) translateY(115px) scale(1);
+  box-shadow: 0 0 3px white;
+  opacity: 0.3;
+}
+.container .layer.stars > div:nth-child(29) {
+  transform: translateX(298px) translateY(317px) scale(0.8571428571);
+  box-shadow: 0 0 2px white;
+  opacity: 0.1;
+}
+.container .layer.stars > div:nth-child(30) {
+  transform: translateX(2157px) translateY(73px) scale(0.7142857143);
+  box-shadow: 0 0 3px white;
+  opacity: 0.4;
+}
+.container .layer.stars > div:nth-child(31) {
+  transform: translateX(2189px) translateY(73px) scale(0.4285714286);
+  box-shadow: 0 0 4px white;
+  opacity: 0.4;
+}
+.container .layer.stars > div:nth-child(32) {
+  transform: translateX(1395px) translateY(232px) scale(0.4285714286);
+  box-shadow: 0 0 3px white;
+  opacity: 0.9;
+}
+.container .layer.stars > div:nth-child(33) {
+  transform: translateX(2171px) translateY(274px) scale(0.1428571429);
+  box-shadow: 0 0 3px white;
+  opacity: 0.2;
+}
+.container .layer.stars > div:nth-child(34) {
+  transform: translateX(1643px) translateY(142px) scale(0.1428571429);
+  box-shadow: 0 0 1px white;
+  opacity: 0.5;
+}
+.container .layer.stars > div:nth-child(35) {
+  transform: translateX(1488px) translateY(102px) scale(1.4285714286);
+  box-shadow: 0 0 2px white;
+  opacity: 0.7;
+}
+.container .layer.stars > div:nth-child(36) {
+  transform: translateX(487px) translateY(357px) scale(1.1428571429);
+  box-shadow: 0 0 2px white;
+  opacity: 0.1;
+}
+.container .layer.stars > div:nth-child(37) {
+  transform: translateX(976px) translateY(10px) scale(1.1428571429);
+  box-shadow: 0 0 4px white;
+  opacity: 0.8;
+}
+.container .layer.stars > div:nth-child(38) {
+  transform: translateX(845px) translateY(254px) scale(0.1428571429);
+  box-shadow: 0 0 1px white;
+  opacity: 0.7;
+}
+.container .layer.stars > div:nth-child(39) {
+  transform: translateX(1399px) translateY(323px) scale(1.2857142857);
+  box-shadow: 0 0 4px white;
+  opacity: 0.7;
+}
+.container .layer.stars > div:nth-child(40) {
+  transform: translateX(1034px) translateY(371px) scale(0.8571428571);
+  box-shadow: 0 0 1px white;
+  opacity: 0.1;
+}
+.container .layer.stars > div:nth-child(41) {
+  transform: translateX(895px) translateY(232px) scale(0.7142857143);
+  box-shadow: 0 0 2px white;
+  opacity: 0.1;
+}
+.container .layer.stars > div:nth-child(42) {
+  transform: translateX(1602px) translateY(223px) scale(1.2857142857);
+  box-shadow: 0 0 4px white;
+  opacity: 0.6;
+}
+.container .layer.stars > div:nth-child(43) {
+  transform: translateX(1267px) translateY(98px) scale(1.4285714286);
+  box-shadow: 0 0 2px white;
+  opacity: 0.5;
+}
+.container .layer.stars > div:nth-child(44) {
+  transform: translateX(429px) translateY(198px) scale(0.1428571429);
+  box-shadow: 0 0 1px white;
+  opacity: 0.3;
+}
+.container .layer.stars > div:nth-child(45) {
+  transform: translateX(2185px) translateY(112px) scale(0.2857142857);
+  box-shadow: 0 0 4px white;
+  opacity: 0.9;
+}
+.container .layer.stars > div:nth-child(46) {
+  transform: translateX(567px) translateY(220px) scale(1.2857142857);
+  box-shadow: 0 0 1px white;
+  opacity: 0.1;
+}
+.container .layer.stars > div:nth-child(47) {
+  transform: translateX(1400px) translateY(199px) scale(0.4285714286);
+  box-shadow: 0 0 4px white;
+  opacity: 1;
+}
+.container .layer.stars > div:nth-child(48) {
+  transform: translateX(1379px) translateY(304px) scale(1);
+  box-shadow: 0 0 1px white;
+  opacity: 0.9;
+}
+.container .layer.stars > div:nth-child(49) {
+  transform: translateX(1993px) translateY(102px) scale(0.8571428571);
+  box-shadow: 0 0 3px white;
+  opacity: 0.8;
+}
+.container .layer.stars > div:nth-child(50) {
+  transform: translateX(655px) translateY(296px) scale(1.2857142857);
+  box-shadow: 0 0 2px white;
+  opacity: 0.8;
+}
+.container .note {
+  padding: 20px;
+  border: solid 1px white;
+  width: 33.333%;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  position: absolute;
+  bottom: 15px;
+  left: 33.333%;
+  background: rgba(125, 95, 85, 0.4);
+  text-shadow: 0 1px 1px black;
+  border-radius: 30px;
+  transition: background 4s ease;
+}
+.container.night .layer:nth-child(2) {
+  opacity: 0;
+}
+.container.night .layer:nth-child(2) > div {
+  transform: translateY(100%);
+  opacity: 0;
+}
+.container.night .layer:nth-child(3) {
+  opacity: 0.8;
+}
+.container.night .layer:nth-child(3) > div {
+  transform: translateY(0%);
+  opacity: 1;
+}
+.container.night .layer.stars {
+  opacity: 1;
+  transform: translateY(0%);
+  transition: opacity 8s ease, transform 15s ease;
+}
+.container.night .note {
+  background: rgba(100, 100, 122, 0.02);
+}

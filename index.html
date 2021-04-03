@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Project 2</title>
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
+  <link rel="stylesheet" href="main.css">
+
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="layer filter">
+
+    </div>
+    <div class="layer sunset">
+      <div class="text"></div>
+    </div>
+    <div class="layer nighttime">
+      <div class="text"></div>
+    </div>
+    <div class="layer stars">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
+  </div>
+
+
+
+
+<!-- JAVASCRIPT -->
+
+  <script type="text/javascript" src="script.js"></script>
+
+
+  <!-- -threejs script -->
+  <script src="three.js"></script>
+  <script src="three.min.js"></script>
+  <!-- <script type="module" src="three.module.js"></script> -->
+
+  <script type="module" src="GLTFLoader.js"></script>
+  <script type="module" src="OrbitControls.js"></script>
+  <!-- <script type="module" src="three.js-master/examples/jsm/loaders/RGBELoader.js"></script>
+  <script type="module" src="three.js-master/src/extras/PMREMGenerator.js"></script> -->
+  <script type="module">
+    import * as THREE from './three.module.js';
+
+    // import {
+    //   GUI
+    // } from './three.js-master/examples/jsm/libs/dat.gui.module.js';
+    import {
+      OrbitControls
+    } from './OrbitControls.js';
+    import {
+      GLTFLoader
+    } from './GLTFLoader.js';
+    // import {
+    //   MeshStandardMaterial
+    // } from './three.js-master/src/materials/MeshStandardMaterial.js';
+    // import {
+    //   MeshPhongMaterial
+    // } from './three.js-master/src/materials/MeshPhongMaterial.js';
+    import {
+      PMREMGenerator
+    } from "./three.js-master/src/extras/PMREMGenerator.js";
+    import {
+      RGBELoader
+    } from "./three.js-master/examples/jsm/loaders/RGBELoader.js";
+
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(
+      75,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      2000
+    );
+
+    scene.background = null;
+
+    var renderer = new THREE.WebGLRenderer({ alpha: true });
+    renderer.setClearColor( 0xffffff, 0.05 ); // the default
+    renderer.setSize(window.innerWidth-300,window.innerHeight-300);
+    document.body.appendChild(renderer.domElement);
+    renderer.outputEncoding = THREE.sRGBEncoding;
+    renderer.outputEncoding = THREE.GammaEncoding;
+    renderer.gammaFactor = 2.5;
+
+
+    var controls = new OrbitControls(camera, renderer.domElement);
+    controls.addEventListener('change', renderer);
+
+
+    var loader = new GLTFLoader();
+
+    var obj;
+    loader.load("homeFinal.gltf", function(gltf) {
+      obj = gltf.scene;
+      // obj.position.set( 0, 0, 10 );
+      scene.add(gltf.scene);
+
+
+      // White directional light at half intensity shining from the top.
+      var directionalLight = new THREE.DirectionalLight( 0x8c73ff, 2 );
+      directionalLight.target = obj;
+      scene.add( directionalLight );
+      // var directionalLight2 = new THREE.DirectionalLight( 0xffffff, 2 );
+      // directionalLight2.target = obj;
+      // scene.add( directionalLight2 );
+
+    });
+
+
+    // let rgbeLoader = new RGBELoader();
+    // rgbeLoader.setDataType(THREE.UnsignedByteType);
+    // // console.log(renderer);
+    //
+    // let pmremGenerator = new PMREMGenerator(renderer);
+    //
+    // rgbeLoader.load('street_lamp_1k.hdr', function(texture) {
+    //   console.log("loaded hdr");
+    //   renderer.toneMappingExposure = 0.96;
+    //   let envMap = pmremGenerator.fromEquirectangular(texture).texture;
+    //
+    //   // scene.background = envMap;
+    //   scene.environment = envMap;
+    //
+    //   texture.dispose();
+    //   pmremGenerator.dispose();
+    //
+    // }, undefined, function(error) {
+    //   console.error(error);
+    // });
+
+
+
+    // lights
+
+          let ambientLight = new THREE.AmbientLight( 0x2f00ff, 0.5 );
+            scene.add( ambientLight );
+          // let ambientLight2 = new THREE.AmbientLight( 0x001aff, 5 );
+          //   scene.add( ambientLight2 );
+
+          let pointLight = new THREE.PointLight( 0xbf5e5e, 2.5 );
+            pointLight.position.z = 2500;
+            scene.add( pointLight );
+
+            // pointLight.position.set( 5, 2, 8 );
+          //
+          //   const pointLight2 = new THREE.PointLight( 0x3449eb, 2 );
+          //   camera.add( pointLight2 );
+
+            const pointLight3 = new THREE.PointLight( 0x2f00ff, 0.5);
+            pointLight3.position.x = -2000;
+            pointLight3.position.y = 60000;
+            pointLight3.position.z = 4000;
+            scene.add( pointLight3 );
+
+
+    // scene.background = new THREE.Color(0x2f3252);
+
+
+    // White directional light at half intensity shining from the top.
+    // var directionalLight = new THREE.DirectionalLight( 0xffffff, 1 );
+    // directionalLight.target = obj;
+    // scene.add( directionalLight );
+
+
+    var light = new THREE.HemisphereLight(0xffffff, 0xffffff, 1);
+    scene.add(light);
+    camera.position.set(0, 2, 10);
+
+
+
+    function animate() {
+      requestAnimationFrame(animate);
+      obj.rotation.y += 0.0005;
+      renderer.render(scene, camera);
+    }
+    animate();
+
+
+
+  </script>
+
+
+</body>
+
+</html>
